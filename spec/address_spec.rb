@@ -54,7 +54,7 @@ describe Address do
   end
 
   describe('#save') do
-    it('returns an all addresses') do
+    it('adds an address and all attributes to the address array') do
       test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
       test_address.save
       expect(Address.all()).to(eq([test_address]))
