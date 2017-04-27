@@ -6,29 +6,43 @@ describe Address do
 
   describe('#street') do
     it('returns the street of the address') do
-      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236"})
+      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
       expect(test_address.street()).to(eq('123 Test St.'))
     end
   end
 
   describe('#city') do
     it('returns the city of the address') do
-      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236"})
+      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
       expect(test_address.city()).to(eq('Portland'))
     end
   end
 
   describe('#state') do
     it('returns the state of the address') do
-      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236"})
+      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
       expect(test_address.state()).to(eq('OR'))
     end
   end
 
   describe('#zipcode') do
     it('returns the zipcode of the address') do
-      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236"})
+      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
       expect(test_address.zipcode()).to(eq('97236'))
+    end
+  end
+
+  describe('#type') do
+    it('returns the type of the address') do
+      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
+      expect(test_address.type()).to(eq('Home'))
+    end
+  end
+
+  describe('#id') do
+    it('returns the ID of the address') do
+      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
+      expect(test_address.id()).to(eq(1))
     end
   end
 end
