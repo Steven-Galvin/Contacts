@@ -11,4 +11,12 @@ class Address
     @type = attributes.fetch(:type)
     @id = @@addresses.length().+(1)
   end
+
+  define_singleton_method(:all) do
+    @@addresses
+  end
+
+  define_method(:save) do
+    @@addresses.push(self)
+  end
 end

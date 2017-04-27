@@ -45,4 +45,19 @@ describe Address do
       expect(test_address.id()).to(eq(1))
     end
   end
+
+  describe('.all') do
+    it('returns an empty array') do
+      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
+      expect(Address.all()).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it('returns an all addresses') do
+      test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
+      test_address.save
+      expect(Address.all()).to(eq([test_address]))
+    end
+  end
 end
