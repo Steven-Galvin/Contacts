@@ -21,12 +21,28 @@ require "pry"
     describe('#job_title') do
       it('returns the job title of a contact') do
         test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        expect(test_contact.job_title()).to(eq("Software Developer"))
       end
     end
 
     describe('#company') do
       it('returns the company of a contact') do
         test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        expect(test_contact.company()).to(eq("Epicodus"))
+      end
+    end
+
+    describe('#id') do
+      it('returns the ID of a contact') do
+        test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        expect(test_contact.id()).to(eq(1))
+      end
+    end
+
+    describe('.all') do
+      it('returns an empty arrray of contacts') do
+        test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        expect(Contact.all()).to(eq([]))
       end
     end
   end
