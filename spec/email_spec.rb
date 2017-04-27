@@ -23,4 +23,19 @@ describe Email do
       expect(test_email.id()).to(eq(1))
     end
   end
+
+  describe('.all') do
+    it('returns all phone numbers in the email array') do
+    test_email = Email.new({:email_address => 'no@no.com', :type => 'Personal', :id => 1})
+    expect(Email.all()).to(eq([]))
+    end
+  end
+
+  describe('#save') do
+    it('adds a new email to an array of emails') do
+      test_email = Email.new({:email_address => 'no@no.com', :type => 'Personal', :id => 1})
+      test_email.save
+      expect(Email.all()).to(eq([test_email]))
+    end
+  end
 end
