@@ -1,5 +1,5 @@
 class Contact
-  attr_reader(:first_name, :last_name, :job_title, :company, :id)
+  attr_reader(:first_name, :last_name, :job_title, :company, :id, :contact_addresses)
 
   @@contacts = []
 
@@ -9,6 +9,7 @@ class Contact
     @job_title = attributes.fetch(:job_title)
     @company = attributes.fetch(:company)
     @id = @@contacts.length().+(1)
+    @contact_addresses = []
   end
 
   define_singleton_method(:all) do
@@ -31,5 +32,9 @@ class Contact
       end
     end
     matched_contact
+  end
+
+  define_method(:add_address) do |address|
+    @contact_addresses.push(address)
   end
 end

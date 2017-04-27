@@ -1,6 +1,9 @@
 require "contacts"
 require "rspec"
 require "pry"
+require "address"
+require "email"
+require "phone"
 
   describe(Contact) do
 
@@ -70,6 +73,15 @@ require "pry"
         test_contact2 = Contact.new({:first_name => "Steven", :last_name => "Galvin", :job_title => "Software Developer", :company => "Epicodus"})
         test_contact2.save()
         expect(Contact.find(1)).to(eq(test_contact))
+      end
+    end
+
+    describe('#add_address') do
+      it('adds an address to a contact') do
+        test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        test_address = Address.new({:street => '123 Test St.', :city => 'Portland', :state => "OR", :zipcode => "97236", :type => "Home"})
+        test_contact.add_address(test_address)
+        expect(test_contact.contact_addresses()).to(eq([test_address]))
       end
     end
   end
