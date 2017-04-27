@@ -19,4 +19,18 @@ class Address
   define_method(:save) do
     @@addresses.push(self)
   end
+
+  define_singleton_method(:clear) do
+    @@addresses = []
+  end
+
+  define_singleton_method(:find) do |id|
+    matched_address = nil
+    @@addresses.each do |address|
+      if address.id() == id
+        matched_address = address
+      end
+    end
+    matched_address
+  end
 end
