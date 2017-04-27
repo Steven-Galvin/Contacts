@@ -84,4 +84,13 @@ require "phone"
         expect(test_contact.contact_addresses()).to(eq([test_address]))
       end
     end
+
+    describe('#add_email') do
+      it('adds an email to a contact') do
+        test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        test_email = Email.new({:email_address => 'no@no.com', :type => 'Personal', :id => 1})
+        test_contact.add_email(test_email)
+        expect(test_contact.contact_email()).to(eq([test_email]))
+      end
+    end
   end
