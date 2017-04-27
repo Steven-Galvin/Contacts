@@ -16,4 +16,18 @@ class Email
   define_method(:save) do
     @@emails.push(self)
   end
+
+  define_singleton_method(:clear) do
+    @@emails = []
+  end
+
+  define_singleton_method(:find) do |id|
+    matched_email = nil
+    @@emails.each() do |email|
+      if email.id() == id
+       matched_email = email
+      end
+    end
+    matched_email
+  end
 end
