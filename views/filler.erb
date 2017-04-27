@@ -1,0 +1,36 @@
+<hr>
+<h4>Address</h4>
+<label for="street">street:</label>
+<input id="street" name="street" class="form-control" type="text">
+<label for="city">city:</label>
+<input id="city" name="city" class="form-control" type="text">
+<label for="state">state:</label>
+<input id="state" name="state" class="form-control" type="text">
+<label for="zipcode">zipcode:</label>
+<input id="zipcode" name="zipcode" class="form-control" type="text">
+<hr>
+<h4>Email</h4>
+<label for="email_address">email address:</label>
+<input id="email_address" name="email_address" class="form-control" type="text">
+<label for="email_type">email_type:</label>
+<input id="email_type" name="email_type" class="form-control" type="text">
+<hr>
+<h4>Phone Number</h4>
+<label for="area_code">area code:</label>
+<input id="area_code" name="area_code" class="form-control" type="text">
+<label for="number">number:</label>
+<input id="number" name="number" class="form-control" type="text">
+<label for="number_type">number_type:</label>
+<input id="number_type" name="number_type" class="form-control" type="text">
+
+street = params.fetch('street')
+city = params.fetch('city')
+state = params.fetch('state')
+zipcode = params.fetch('zipcode')
+email_address = params.fetch('email_address')
+email_type = params.fetch('email_type')
+area_code = params.fetch('area_code')
+number = params.fetch('number')
+number_type = params.fetch('number_type')
+
+Contact.new(first_name, last_name, job_title, company, street, city, state, zipcode, email_address, email_type, area_code, number, number_type).save()
