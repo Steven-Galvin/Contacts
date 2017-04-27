@@ -20,4 +20,14 @@ class Phone
   define_singleton_method(:clear) do
     @@phone_numbers = []
   end
+
+  define_singleton_method(:find) do |id|
+    matched_number = nil
+    @@phone_numbers.each() do |number|
+      if number.id() == id
+        matched_number = number
+      end
+    end
+    matched_number
+  end
 end
