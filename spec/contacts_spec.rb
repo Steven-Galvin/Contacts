@@ -45,6 +45,23 @@ require "pry"
         expect(Contact.all()).to(eq([]))
       end
     end
+
+    describe('#save') do
+      it('adds a contact and all attributes to the contacts array') do
+        test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        test_contact.save()
+        expect(Contact.all()).to(eq([test_contact]))
+      end
+    end
+
+    describe('.clear') do
+      it('clears the contacts array') do
+        test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        test_contact.save()
+        Contact.clear()
+        expect(Contact.all()).to(eq([]))
+      end
+    end
   end
 
 
