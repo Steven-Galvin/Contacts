@@ -62,6 +62,16 @@ require "pry"
         expect(Contact.all()).to(eq([]))
       end
     end
+
+    describe('.find') do
+      it('finds a contact') do
+        test_contact = Contact.new({:first_name => "Dana", :last_name => "Weiss", :job_title => "Software Developer", :company => "Epicodus"})
+        test_contact.save()
+        test_contact2 = Contact.new({:first_name => "Steven", :last_name => "Galvin", :job_title => "Software Developer", :company => "Epicodus"})
+        test_contact2.save()
+        expect(Contact.find(1)).to(eq(test_contact))
+      end
+    end
   end
 
 
